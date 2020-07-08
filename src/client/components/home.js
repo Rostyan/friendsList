@@ -1,27 +1,25 @@
 import React, { Component } from 'react'
+import UsersTable from './usersTable/usersTable'
 
 export default class Home extends Component {
-
   constructor(props) {
     super(props)
 
     this.state = {
-      name: null,
-      email: null,
-      userImage: null,
-      friendsList: [],
-      status: ''
+      users: []
     }
   }
 
   componentDidMount() {
-    fetch('/api/')
+    fetch('/api/friend')
       .then(res => res.json())
-      .then(res => this.setState({ email: res.email, name: res.name, friendsList: res.friendsList, userImage: user.userImage, status: res.status}))
-      .catch(err => err);
+      .then(res => this.setState({
+        users: res
+      }))
+      .catch(err => err);       
   }
-
   render() {
+    console.log('User', this.state)
     return (
       <div className='container'>
         

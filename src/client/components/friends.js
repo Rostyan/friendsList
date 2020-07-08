@@ -1,27 +1,33 @@
 import React, { Component } from 'react'
+import FriendsTable from './usersTable/friendsTable'
 
 export default class Friends extends Component {
-  state = {
-    users: []
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      user: []
+    }
   }
 
   componentDidMount() {
-    fetch('/api/friend')
+    fetch('/api/')
       .then(res => res.json())
-      .then(res => this.setState({
-        users: res
-      }))
-      .catch(err => err);       
+      .then(res => this.setState({ user: res }))
+      .catch(err => err);
   }
+
+
   render() {
-    console.log('Data', this.state.users.email)
+    console.log('Data', this.state.user.email)
     return (
       <div>
       {
-        this.state.users.map(user=> {
+        this.state.user.map(person=> {
           return (
-            <div key = {user.id}> 
-              Email: {user.email}
+            <div key = {person.id}> 
+              Email: {person.email}
             </div>
           );
         })
