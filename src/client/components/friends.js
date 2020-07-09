@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import FriendsTable from './usersTable/friendsTable'
 
 export default class Friends extends Component {
 
@@ -20,18 +19,10 @@ export default class Friends extends Component {
 
 
   render() {
-    console.log('Data', this.state.user.email)
+    console.log('Data', this.state.user)
     return (
       <div>
-      {
-        this.state.user.map(person=> {
-          return (
-            <div key = {person.id}> 
-              Email: {person.email}
-            </div>
-          );
-        })
-      }
+        fsdf
       </div>
     )
   }

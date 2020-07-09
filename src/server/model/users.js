@@ -24,14 +24,9 @@ const users = new Schema({
     maxlength: [50, "name is too long"]
   },
 
-  userImage: {
-    type: String,
-    default: 'default.png'
-  },
-
   status: {
     type: String,
-    default: ''
+    default: null
   },
 
   friendsList: [{
