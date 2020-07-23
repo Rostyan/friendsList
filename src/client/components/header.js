@@ -30,41 +30,50 @@ export default class Header extends Component {
   }
 
   render() {
-    if (this.state.message === 'OK!') {
-      return (
-        <header>
+    return (
+      <header>
 
-          <Navbar bg="dark" variant="dark">
-            <Container>
+        <Navbar bg="dark" variant="dark">
+          <Container>
 
-              <Nav className="justify-content-end">
-                <Nav>
-                  <Link to={"/"} className="nav-link">
-                    Users
+            <Nav className="justify-content-end">
+              <Nav>
+                <Link to={"/"} className="nav-link">
+                  Users
               </Link>
-                </Nav>
-                <Nav>
-                  <Link to={"/friend"} className="nav-link">
-                    Friends
+              </Nav>
+              <Nav>
+                <Link to={"/friend"} className="nav-link">
+                  Friends
                 </Link>
-                </Nav>
               </Nav>
 
-              <Navbar.Brand>
-                <Link to={"/login"} className="nav-link" onClick={this.logout} >
-                  Log out
+              <Nav>
+                <Link to={"/addpeopletodb"} className="nav-link">
+                  Add People
+                  </Link>
+              </Nav>
+
+            </Nav>
+
+
+            <Navbar.Brand>
+
+            </Navbar.Brand>
+
+            <Navbar.Brand>
+              <Link to={"/login"} className="nav-link" >
+                Login
+                </Link>
+              <Link to={"/login"} className="nav-link" onClick={this.logout} >
+                Log out
               </Link>
-              </Navbar.Brand>
+            </Navbar.Brand>
 
-            </Container>
-          </Navbar>
+          </Container>
+        </Navbar>
 
-        </header>
-      )
-    } else {
-      return (
-        <div></div>
-      );
-    }
+      </header>
+    )
   }
 }

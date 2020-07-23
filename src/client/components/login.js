@@ -21,13 +21,7 @@ export default class Login extends Component {
                 className="form-control" id="password" name="password"
                 placeholder="Password" ref={ passwordInput => this.passwordInput = passwordInput} />
                 <br></br>
-                
-              <div className="form-actions">
-                <input type="submit"
-                  className="btn btn-block btn-primary btn-default" value="Sign In" />
-                <button ><a href='/signup'>Add people</a></button>
-              </div>
-
+  
             </form>
           </div>
         </div>

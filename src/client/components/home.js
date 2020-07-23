@@ -41,7 +41,12 @@ export default class Home extends Component {
   }
 
   addFriend(){
-
+    fetch('/api/addfriend')
+      .then(res => res.json())
+      .then(res => this.setState({
+        users: res
+      }))
+      .catch(err => err);
   }
 
   removeFriend(){
@@ -57,12 +62,42 @@ export default class Home extends Component {
     console.log('User', this.state)
     return (
       <div className='container'>
-      <SearchField
-      placeholder="Search..."
-      onChange={this.onChange}
-      classNames="react-search-field-input"
-    />
-    
+        <SearchField
+        placeholder="Search..."
+        onChange={this.onChange}
+        classNames="react-search-field-input"
+      />
+
+      {
+        this.state.users.map(person=> {
+          return (
+            <div> { 
+              if (person.status == 'null'){
+                <div key = {person.id}> 
+                Name: {person.name}
+                Status: {person.status}
+              </div>
+              } else if 
+            
+            :person.status == 'friends' 
+            (<div key = {person.id}> 
+              Name: {person.name}
+              Status: {person.status}
+              <button>Add friend</button>
+              </div>)
+              :person.status == 'pending request'(
+                <div key = {person.id}> 
+                Name: {person.name}
+                Status: {person.status}
+                <button>Add friend</button>
+                </div>              )
+              }
+                </div>
+
+
+          );
+        })
+      }
       </div>
     )
   }

@@ -31,7 +31,8 @@ const users = new Schema({
 
   friendsList: [{
     friendId: { type: mongoose.Schema.Types.ObjectId, ref: 'users' },
-    friendName: { type: String, default: '' }
+    friendName: { type: String, default: ' ' },
+    friendStatus: { type: String, default: ' ' }
   }],
 
 }, { collection: "users" });

@@ -19,7 +19,7 @@ router.get('/friend', function (req, res) {
       let usersData = user.map((user) => {
         return {
           email: user.email,
-          friendsList: req.session.passport.user.friendsList,
+          // friendsList: req.session.passport.user.friendsList,
           name: user.name,
           status: user.status
         };
@@ -56,6 +56,26 @@ router.post('/removefriend', function (req, res) {
     status: ' '
   };
 
+
+  User.findOneAndUpdate(
+    { _id: req.body.id },
+    { $pull: { friendsList: updatedOptions } },
+    function (error, success) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(success);
+      }
+    });
+})
+
+router.post('/ignorefriend', function (req, res) {
+  let updatedOptions = {
+    name: req.body.name,
+    email: req.body.email,
+    status: 'pending request'
+  };
+
   User.findOneAndUpdate({ _id: req.params.id }, { $set: updatedOptions }, function (error) {
     if (error) {
       res.send(error);
@@ -65,11 +85,11 @@ router.post('/removefriend', function (req, res) {
   });
 })
 
-router.post('/ignorefriend', function (req, res) {
+router.post('/cancelrequest', function (req, res) {
   let updatedOptions = {
     name: req.body.name,
     email: req.body.email,
-    status: 'pending request'
+    status: ' '
   };
 
   User.findOneAndUpdate({ _id: req.params.id }, { $set: updatedOptions }, function (error) {
@@ -98,7 +118,7 @@ router.get('/logout', function (req, res) {
   res.redirect('/login');
 });
 
-router.post('/signup', function (req, res) {
+router.post('/addpeopletodb', function (req, res) {
 
   let newUser = new User({
     email: req.body.email,
@@ -112,7 +132,7 @@ router.post('/signup', function (req, res) {
   });
 
 
-  res.redirect('/login');
+  res.redirect('/');
 });
 
 

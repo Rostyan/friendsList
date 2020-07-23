@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Register extends Component {
+export default class AddPeopleToDB extends Component {
   state = {
     name: '',
     email: ''
@@ -17,7 +17,7 @@ export default class Register extends Component {
 
   render() {
     return (
-      <form method="POST" action={`/api/signup`} className="container">
+      <form method="POST" action={`/api/addpeopletodb`} className="container">
         <div className="form-group">
 
           <label htmlFor="email">Email</label>
@@ -31,7 +31,7 @@ export default class Register extends Component {
           <input required autoComplete="password" name="password" type="password" className="form-control" placeholder="Password" />
         </div>
 
-        <button type="submit" className="btn btn-block btn-primary">Sign up</button>
+        <button type="submit" className="btn btn-block btn-primary">Add People</button>
       </form>
     )
   }

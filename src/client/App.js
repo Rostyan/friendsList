@@ -9,7 +9,7 @@ import Header from './components/header'
 import Home from './components/home'
 import Login from './components/login'
 import Friends from './components/friends'
-import Register from './components/register'
+import AddPeopleToDB from './components/addpeopletodb'
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/friend' component={Friends} />
-            <Route exact path='/signup' component={Register}/>
+            <Route exact path='/addpeopletodb' component={AddPeopleToDB}/>
 
             <Route render={() => (<div className="error404">
                                       <h1>Error 404</h1>
