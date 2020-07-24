@@ -72,25 +72,27 @@ export default class Home extends Component {
         this.state.users.map(person=> {
           return (
             <div> { 
-              if (person.status == 'null'){
-                <div key = {person.id}> 
-                Name: {person.name}
-                Status: {person.status}
-              </div>
-              } else if 
-            
-            :person.status == 'friends' 
+              person.status === 'friends' ? 
             (<div key = {person.id}> 
               Name: {person.name}
               Status: {person.status}
               <button>Add friend</button>
               </div>)
-              :person.status == 'pending request'(
+              
+              :person.status === null (
                 <div key = {person.id}> 
                 Name: {person.name}
                 Status: {person.status}
-                <button>Add friend</button>
-                </div>              )
+              </div>
+              )
+            
+            
+              // :person.status === 'pending request'(
+              //   <div key = {person.id}> 
+              //   Name: {person.name}
+              //   Status: {person.status}
+              //   <button>Add friend</button>
+              //   </div>              )
               }
                 </div>
 
